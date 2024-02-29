@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn odds
+          Learn new work 
         </a>
       </header>
     </div>
