@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import '../CounterFun.css';
 
 function CounterFun(props) {
     // const pbutton = <button>+</button>
@@ -8,12 +8,12 @@ function CounterFun(props) {
     const [pcount, setPcount] = useState(0)
 
 
-    const hendalplusbutton = () => { 
-            setPcount(pcount + 1)
+    const hendalplusbutton = () => {
+        setPcount(pcount + 1)
     }
 
     const hendalminusbutton = () => {
-            setPcount(pcount - 1)
+        setPcount(pcount - 1)
     }
 
     const hendalRest = () => {
@@ -21,15 +21,29 @@ function CounterFun(props) {
     }
 
     return (
-        <div>
+        <div id='main'>
             <h3>Counter</h3>
-            <p>
-                <button onClick={hendalRest}>Reset</button>
-                <button onClick={hendalplusbutton} disabled={pcount < 5? false : true}>+</button>
-                {pcount}
-                <button onClick={hendalminusbutton}disabled={pcount > 0? false : true}>-</button>
-            </p>
+            <div id='disp' >
+            
+            <div class="indicator-design">
+                <span id="indicator-quantity">{pcount}</span>
+            </div>
+            <div class="wrapper">
+                <button class="plusButton" onClick={hendalplusbutton} disabled={pcount < 5 ? false : true}>+</button>
+                <span class="num">{pcount}</span>
+                <button class="minusButton" onClick={hendalminusbutton} disabled={pcount > 0 ? false : true}>-</button>
+            </div>
+
+            <div>
+                <button id='button' onClick={hendalRest}>Reset</button>
+            </div>
+
         </div>
+        </div>
+        
+
+
+
     );
 }
 
