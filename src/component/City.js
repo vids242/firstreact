@@ -27,7 +27,7 @@ class City extends Component {
                 <h3>Your City Name Is : {this.state.name}</h3>
                 <h4>Your City Population Is : {this.state.population}</h4>
 
-                <button onClick={this.hendalbutton}>Next Country</button>
+                <button onClick={this.hendalbutton}>Next City</button>
             </>
 
         );
