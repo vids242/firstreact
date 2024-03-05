@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CityFun from './CityFun';
 
 
 function CountryFun(props) {
@@ -18,6 +19,8 @@ function CountryFun(props) {
             <h4>Your TimeZone is : {timezone}</h4>
 
             <button onClick={hendalbutton}>Next Country</button>
+
+            <CityFun countryName={name}/>
         </div>
     );
 }

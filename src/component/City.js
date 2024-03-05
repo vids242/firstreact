@@ -23,7 +23,10 @@ class City extends Component {
             <>
                 <h1>
                     City
-                </h1>
+                </h1>{
+                  this.props.cn === "india" ? <h2>Delhi</h2>:<h2>New York</h2> 
+                }
+                
                 <h3>Your City Name Is : {this.state.name}</h3>
                 <h4>Your City Population Is : {this.state.population}</h4>
 

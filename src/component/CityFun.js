@@ -11,6 +11,9 @@ function CityFun(props) {
 
     return (
         <div>
+            {
+                props.countryName === "india" ? <h2>Delhi</h2>:<h2>New Yourk</h2>
+            }
              <h1>Function Base Components</h1>
             <h3>Your City Name Is : {name}</h3>
             <h4>Your City Population Is : {population}</h4>
