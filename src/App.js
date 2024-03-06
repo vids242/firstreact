@@ -1,6 +1,8 @@
 
 import './App.css';
-import Doctors from './containers/Doctors/Doctors';
+// import Mconstructor from './component/Mconstructor';
+// import Doctors from './containers/Doctors/Doctors';
+import Time from './containers/Timer/Time';
 // import City from './component/City';
 // import CityFun from './component/CityFun';
 // import CounterFun from './component/CounterFun';
@@ -20,7 +22,9 @@ function App() {
       {/* <CounterFun/> */}
       {/* <PropsEx text="hello Vraj"/> */}
       {/* <Medicines/> */}
-      <Doctors />
+      {/* <Doctors /> */}
+      {/* <Mconstructor/> */}
+      <Time/>
     </div>
   );
 }
