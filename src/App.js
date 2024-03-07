@@ -1,6 +1,8 @@
 
 import './App.css';
-import CounterFun from './containers/Timer/CounterFun';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Products from './containers/Products/Products';
+// import CounterFun from './containers/Timer/CounterFun';
 // import TimerFun from './containers/Timer/TimerFun';
 // import Mconstructor from './component/Mconstructor';
 // import Doctors from './containers/Doctors/Doctors';
@@ -28,7 +30,8 @@ function App() {
       {/* <Mconstructor/> */}
       {/* <Time/> */}
       {/* <TimerFun/> */}
-      <CounterFun/>
+      {/* <CounterFun/> */}
+      <Products/>
     </div>
   );
 }
