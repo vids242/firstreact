@@ -1,8 +1,10 @@
 
 import './App.css';
+import CounterFun from './containers/Timer/CounterFun';
+// import TimerFun from './containers/Timer/TimerFun';
 // import Mconstructor from './component/Mconstructor';
 // import Doctors from './containers/Doctors/Doctors';
-import Time from './containers/Timer/Time';
+// import Time from './containers/Timer/Time';
 // import City from './component/City';
 // import CityFun from './component/CityFun';
 // import CounterFun from './component/CounterFun';
@@ -24,7 +26,9 @@ function App() {
       {/* <Medicines/> */}
       {/* <Doctors /> */}
       {/* <Mconstructor/> */}
-      <Time/>
+      {/* <Time/> */}
+      {/* <TimerFun/> */}
+      <CounterFun/>
     </div>
   );
 }
