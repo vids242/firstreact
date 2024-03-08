@@ -4,6 +4,7 @@ import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react
 function Products(props) {
     const [product_data, setProduct_data] = useState([]);
     const [search_data, setSearch_data] = useState("");
+    const [sort, setSort] = useState("");
 
     const getData = async () => {
         const response = await fetch("https://fakestoreapi.com/products");
@@ -16,18 +17,30 @@ function Products(props) {
         getData()
     }, [])
 
-    const hendalSearch = (event) => {
-        console.log(event);
-        setSearch_data(event.target.value);
-        //  console.log(search_data);
-    };
+
     // console.log(search_data);
+    const hendalsearch = () => {
+        let fdata = product_data.filter((v) => (
+            v.title.toLowerCase().includes(search_data.toLowerCase())
+        ))
+        
+        fdata.sort((a,b)=>{
+            if (sort === "lh") {
+                return a.price - b.price
+            } else if (sort === "hl") {
+                return b.price - a.price
+            }  else if (sort === "az"){
+                return a.title.localeCompare(b.title) 
+            }  else if (sort === "za"){
+                return b.title.localeCompare(a.title) 
+            }
+        })
 
-    const Filter_data = product_data.filter((v) =>
-        v.title.includes(search_data)
-    );
+        return fdata
+    }
 
-    // console.log(Filter_data.title);
+    const final_data = hendalsearch()
+
     return (
         <div className="container">
             <div className="row">
@@ -37,10 +50,18 @@ function Products(props) {
                         type="text"
                         placeholder="Search..."
                         value={search_data}
-                        onChange={hendalSearch}
+                        onChange={(event) => setSearch_data(event.target.value)}
                     />
+                    <select name='sort' onChange={(event) => setSort(event.target.value)}>
+                        <option value={""}>--Select Sort--</option>
+                        <option value={"lh"}>Price : Low to High </option>
+                        <option value={"hl"}>Price : High to Low </option>
+                        <option value={"az"}>Filter : A to Z </option>
+                        <option value={"za"}>Filter : Z to A </option>
+
+                    </select>
                 </div>
-                {product_data.map((v) => (
+                {final_data.map((v) => (
                     <div className="col-md-4 gy-4">
                         <Card
                             style={{
@@ -51,7 +72,7 @@ function Products(props) {
                             <CardBody>
                                 <CardTitle tag="h5">{v.title.length > 20 ? v.title.substring(0, 20) + "..." : v.title}</CardTitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6" >
-                                   $ {v.price}
+                                    $ {v.price}
                                 </CardSubtitle>
                                 <CardText>{v.description.length > 50 ? v.description.substring(0, 50) + "..." : v.description}</CardText>
                                 <Button color="success" outline>

@@ -58,3 +58,6 @@
   padding: 9px 10px;
   color: #1b233d;
 }
+img {
+  object-fit: contain;
+}
