@@ -5,12 +5,27 @@ function Products(props) {
     const [product_data, setProduct_data] = useState([]);
     const [search_data, setSearch_data] = useState("");
     const [sort, setSort] = useState("");
+    const [category, setCategory] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+
 
     const getData = async () => {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json()
         // console.log(data);
         setProduct_data(data);
+
+        let uniqCategory = [];
+
+        data.map((v) => {
+            if (!uniqCategory.includes(v.category)) {
+                uniqCategory.push(v.category);
+            }
+        });
+        setCategory(uniqCategory);
+
+        // console.log(category);
+
     }
 
     useEffect(() => {
@@ -23,18 +38,26 @@ function Products(props) {
         let fdata = product_data.filter((v) => (
             v.title.toLowerCase().includes(search_data.toLowerCase())
         ))
-        
-        fdata.sort((a,b)=>{
+
+        fdata.sort((a, b) => {
             if (sort === "lh") {
                 return a.price - b.price
             } else if (sort === "hl") {
                 return b.price - a.price
-            }  else if (sort === "az"){
-                return a.title.localeCompare(b.title) 
-            }  else if (sort === "za"){
-                return b.title.localeCompare(a.title) 
+            } else if (sort === "az") {
+                return a.title.localeCompare(b.title)
+            } else if (sort === "za") {
+                return b.title.localeCompare(a.title)
             }
         })
+
+        // console.log(category);
+        // console.log(selectedCategory);
+        if (selectedCategory === category) {
+            fdata.filter((v) => v.category === selectedCategory);
+            
+        }
+        console.log(fdata);
 
         return fdata
     }
@@ -60,6 +83,15 @@ function Products(props) {
                         <option value={"za"}>Filter : Z to A </option>
 
                     </select>
+                    {category.map((v) => (
+                        <button
+                            style={{ background: v === selectedCategory ? "green" : "none" }}
+                            onClick={() => setSelectedCategory(v)}
+                        >
+                            {v}
+                        </button>
+                    ))}
+
                 </div>
                 {final_data.map((v) => (
                     <div className="col-md-4 gy-4">
