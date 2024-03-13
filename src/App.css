@@ -61,3 +61,19 @@
 img {
   object-fit: contain;
 }
+
+.search,.selectsort {
+  border: 1px solid green;
+  color: #757575;
+  outline: none;
+  margin-right: 5px;
+  padding: 2px 0px 2px 4px;
+}
+.catogory {
+  margin: 0 3px;
+}
+/* 
+.btn:hover  {
+  color: none!important
+} */
+
