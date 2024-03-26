@@ -1,7 +1,8 @@
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Products from './containers/Products/Products';
+// import './App.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Counter from './containers/Counter/Counter';
+// import Products from './containers/Products/Products';
 // import CounterFun from './containers/Timer/CounterFun';
 // import TimerFun from './containers/Timer/TimerFun';
 // import Mconstructor from './component/Mconstructor';
@@ -31,7 +32,8 @@ function App() {
       {/* <Time/> */}
       {/* <TimerFun/> */}
       {/* <CounterFun/> */}
-      <Products/>
+      {/* <Products/> */}
+      <Counter/>
     </div>
   );
 }
