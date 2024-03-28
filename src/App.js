@@ -1,7 +1,9 @@
 
-// import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux';
 import Counter from './containers/Counter/Counter';
+import { storeReduce } from './Redux/store';
 // import Products from './containers/Products/Products';
 // import CounterFun from './containers/Timer/CounterFun';
 // import TimerFun from './containers/Timer/TimerFun';
@@ -17,7 +19,8 @@ import Counter from './containers/Counter/Counter';
 // import Medicines from './containers/Medicines/Medicines';
 
 
-function App() {
+function App() { 
+  const store = storeReduce()
   return (
     <div>
       {/* <Country/> */}
@@ -33,7 +36,10 @@ function App() {
       {/* <TimerFun/> */}
       {/* <CounterFun/> */}
       {/* <Products/> */}
-      <Counter/>
+      <Provider store={store}>
+        <Counter />
+      </Provider>
+
     </div>
   );
 }
